@@ -1,9 +1,6 @@
 package com.bridgelabz.restapimessagingapp.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class MessageController {
@@ -19,4 +16,11 @@ public class MessageController {
     public String helloQuery(@RequestParam(value = "name") String name) {
         return "Hello " + name + " from BridgeLabz!\n";
     }
+
+    // localhost:8080/hello/param/Mark
+    @GetMapping(value = {"/hello/param/{name}"})
+    public String helloPathParam(@PathVariable String name) {
+        return "Hello " + name + " from BridgeLabz!\n";
+    }
+
 }
